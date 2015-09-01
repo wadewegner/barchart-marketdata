@@ -18,7 +18,7 @@ namespace Barchart.MarketData.WebApi
             var builder = new ContainerBuilder();
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-            builder.RegisterType<ValuesService>().As<IValuesController>();
+            builder.RegisterType<ValuesService>().As<IValuesController>().InstancePerRequest();
 
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
