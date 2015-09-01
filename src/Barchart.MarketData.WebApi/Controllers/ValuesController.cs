@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using Barchart.MarketData.WebApi.Services;
 
 namespace Barchart.MarketData.WebApi.Controllers
 {
     public class ValuesController : ApiController, IValuesController
     {
-        private readonly IValuesController _repository;
+        private readonly IValuesService _repository;
 
-        public ValuesController(IValuesController repository)
+        public ValuesController(IValuesService repository)
         {
             _repository = repository;
         }
