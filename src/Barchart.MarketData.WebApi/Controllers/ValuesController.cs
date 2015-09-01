@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using Autofac.Integration.WebApi;
 
 namespace Barchart.MarketData.WebApi.Controllers
 {
@@ -15,14 +16,13 @@ namespace Barchart.MarketData.WebApi.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
-            //var value = new string[] { "value1", "value2" };
+            
             return _repository.Get();
         }
 
         // GET api/values/5
         public string Get(int id)
         {
-            //return "value";
             return _repository.Get(id);
         }
 

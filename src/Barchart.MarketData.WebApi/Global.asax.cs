@@ -7,6 +7,7 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.WebApi;
 using Barchart.MarketData.WebApi.Controllers;
+using Barchart.MarketData.WebApi.Services;
 
 namespace Barchart.MarketData.WebApi
 {
@@ -21,11 +22,13 @@ namespace Barchart.MarketData.WebApi
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var builder = new ContainerBuilder();
-
             var config = GlobalConfiguration.Configuration;
-            builder.RegisterType<ValuesController>().As<IValuesController>();
 
-            builder.RegisterWebApiFilterProvider(config);
+            //builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            //builder.RegisterType<IValuesController>().As<ValuesService>();
+            builder.RegisterType<ValuesService>().As<IValuesController>();
+
+            //builder.RegisterWebApiFilterProvider(config);
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
