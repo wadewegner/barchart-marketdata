@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Runtime.Remoting.Messaging;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 
 namespace Barchart.MarketData.WebApi.Controllers
 {
     public class ValuesController : ApiController, IValuesController
     {
-        private IValuesController _repository;
+        private readonly IValuesController _repository;
 
         public ValuesController(IValuesController repository)
         {
@@ -27,7 +23,6 @@ namespace Barchart.MarketData.WebApi.Controllers
         public string Get(int id)
         {
             //return "value";
-
             return _repository.Get(id);
         }
 

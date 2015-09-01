@@ -1,10 +1,12 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.WebApi;
+using Barchart.MarketData.WebApi.Controllers;
 
 namespace Barchart.MarketData.WebApi
 {
@@ -21,7 +23,7 @@ namespace Barchart.MarketData.WebApi
             var builder = new ContainerBuilder();
 
             var config = GlobalConfiguration.Configuration;
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterType<ValuesController>().As<IValuesController>();
 
             builder.RegisterWebApiFilterProvider(config);
             var container = builder.Build();
