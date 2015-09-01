@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using Barchart.MarketData.WebApi.Controllers;
 
 namespace Barchart.MarketData.WebApi.Services
 {
     public class ValuesService : IValuesController
     {
+        public ValuesService()
+        {
+            
+        }
+
         public IEnumerable<string> Get()
         {
             var value = new string[] { "value1", "value2" };
